@@ -20,7 +20,7 @@ resource "aws_vpc" "this" {
 resource "aws_internet_gateway" "this" {
   count               = var.create_igw ? 1 : 0
   
-  vpc_id              = aws_vpc.this.id
+  vpc_id              = local.vpc_id
 
   tags = merge(
     { 
