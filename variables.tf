@@ -46,6 +46,12 @@ variable "create_igw" {
   default     = true
 }
 
+variable "igw_name" {
+  description = "Name to be used on all the resources as identifier"
+  type        = string
+  #default     = ""
+}
+
 variable "public_subnets" {
   description = "A list of public subnets inside the VPC"
   type        = list(string)
