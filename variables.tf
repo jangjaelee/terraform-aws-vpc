@@ -56,7 +56,7 @@ variable "public_subnets" {
   default     = []
 }
 
-variable "private_subnets" }
+variable "private_subnets" {
   default     = []
 }
 
