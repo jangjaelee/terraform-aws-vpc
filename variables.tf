@@ -4,6 +4,12 @@ variable "create_vpc" {
   default     = true
 }
 
+variable "vpc_id" {
+  description = "The VPC ID."
+  type        = string
+  default     = ""
+}
+
 variable "vpc_name" {
   description = "Name to be used on all the resources as identifier"
   type        = string
