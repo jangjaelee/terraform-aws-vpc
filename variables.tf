@@ -46,12 +46,6 @@ variable "create_igw" {
   default     = true
 }
 
-variable "igw_tags" {
-  description = "Additional tags for the internet gateway"
-  type        = map(string)
-  default     = {}
-}
-
 variable "public_subnets" {
   description = "A list of public subnets inside the VPC"
   type        = list(string)
