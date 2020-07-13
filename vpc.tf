@@ -16,3 +16,17 @@ resource "aws_vpc" "this" {
   )
 }
 
+# Create Internet Gateway
+resource "aws_internet_gateway" "this" {
+  count               = var.create_igw ? 1 : 0
+  
+  vpc_id              = aws_vpc.this.id
+
+  tags = merge(
+    { 
+      "Name" = format("%s", var.igw_name)
+    },
+    var.tags,
+    var.igw_tags,
+  )
+}
