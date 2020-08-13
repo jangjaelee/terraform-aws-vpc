@@ -9,9 +9,8 @@ resource "aws_vpc" "this" {
 
   tags = merge(
     {
-      "Name" = format("%s", var.vpc_name)
+      "Name" = format("%s-vpc", var.vpc_name)
     },
-    var.tags,
     var.vpc_tags,
   )
 }
@@ -24,9 +23,8 @@ resource "aws_internet_gateway" "this" {
 
   tags = merge(
     { 
-      "Name" = format("%s", var.igw_name)
+      "Name" = format("%s-igw", var.igw_name)
     },
-    var.tags,
     var.igw_tags,
   )
 }
