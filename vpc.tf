@@ -1,4 +1,4 @@
-# Create VPC (Virtual Private Cloud)
+# Create VPC (Virtual Private Cloud) for EKS
 resource "aws_vpc" "this" {
   count                = var.create_vpc ? 1 : 0
 
@@ -10,21 +10,14 @@ resource "aws_vpc" "this" {
   tags = merge(
     {
       "Name" = format("%s-vpc", var.vpc_name)
+      "kubernetes.io/cluster/${var.vpc_name}" = "shared"
     },
+    local.common_tags,
     var.vpc_tags,
   )
 }
 
-# Create Internet Gateway
-resource "aws_internet_gateway" "this" {
-  count               = var.create_igw ? 1 : 0
-  
-  vpc_id              = local.vpc_id
-
-  tags = merge(
-    { 
-      "Name" = format("%s-igw", var.igw_name)
-    },
-    var.igw_tags,
-  )
+resource "aws_vpc_ipv4_cidr_block_association" "k8s_cni_cidr" {
+  vpc_id = local.vpc_id
+  cidr_block = var.k8s_cni_cidr
 }
