@@ -21,7 +21,7 @@ These types of resources are supported:
 
 main.tf
 ```hcl
-module "eks_vpc" {
+module "kubesphere_vpc" {
   source = "git@github.com:jangjaelee/terraform-aws-vpc.git"
 
   vpc_id     = ""
