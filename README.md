@@ -28,6 +28,9 @@ module "kubesphere_vpc" {
   vpc_name   = local.vpc_name
   igw_name   = local.cluster_name
 
+  vpc_cidr     = "10.1.0.0/17"
+  k8s_cni_cidr = "10.1.128.0/17"
+  
   az_zone_names = ["ap-northeast-2a","ap-northeast-2b","ap-northeast-2c","ap-northeast-2d"]
 
   enable_sub_env   = true
