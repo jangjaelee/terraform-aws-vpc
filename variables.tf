@@ -15,6 +15,11 @@ variable "vpc_name" {
   type        = string
 }
 
+variable "cluster_name" {
+  description = "Name for EKS Cluster "
+  type        = string
+}
+
 variable "instance_tenancy" {
   description = "A tenancy option for instances launched into the VPC"
   type        = string

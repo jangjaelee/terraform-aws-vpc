@@ -25,7 +25,7 @@ resource "aws_subnet" "this" {
   tags = merge(
     {
       Name = "${var.vpc_name}-${split("_", each.key)[1]}-${split("_", each.key)[2]}-sn"
-      "kubernetes.io/cluster/${var.vpc_name}" = "shared"
+      "kubernetes.io/cluster/${var.cluster_name}" = "shared"
       "kubernetes.io/role/${split("_", each.key)[1] == "private" ? "internal-" : ""}elb" = 1
       "net:type" = split("_", each.key)[1]
       "net:env" = split("_", each.key)[2]
