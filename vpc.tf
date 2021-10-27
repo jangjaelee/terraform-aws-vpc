@@ -10,7 +10,7 @@ resource "aws_vpc" "this" {
   tags = merge(
     {
       "Name" = format("%s-vpc", var.vpc_name)
-      "kubernetes.io/cluster/${var.vpc_name}" = "shared"
+      "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     },
     local.common_tags,
     var.vpc_tags,

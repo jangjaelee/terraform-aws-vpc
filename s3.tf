@@ -31,7 +31,7 @@ resource "aws_s3_bucket" "s3_flow" {
   tags = merge(
     {
       "Name" = format("%s-s3", var.bucket)
-      "kubernetes.io/cluster/${var.vpc_name}" = "shared"
+      "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     },
     local.common_tags,
     var.vpc_tags,
