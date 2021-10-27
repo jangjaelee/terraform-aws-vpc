@@ -83,6 +83,7 @@ terraform {
     region = "ap-northeast-2"
     dynamodb_table = "kubesphere-terraform-state-locks"
     encrypt = true
+    profile = "eks_service"
   }
 }
 ```
