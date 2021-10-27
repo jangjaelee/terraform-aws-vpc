@@ -24,10 +24,10 @@ main.tf
 module "kubesphere_vpc" {
   source = "git@github.com:jangjaelee/terraform-aws-vpc.git"
 
-  vpc_id     = ""
-  vpc_name   = local.vpc_name
+  vpc_id       = ""
+  vpc_name     = local.vpc_name
   cluster_name = local.cluster_name
-  igw_name   = local.vpc_name
+  igw_name     = local.vpc_name
 
   vpc_cidr     = "10.1.0.0/17"
   k8s_cni_cidr = "10.1.128.0/17"
