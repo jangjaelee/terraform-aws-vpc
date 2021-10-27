@@ -26,26 +26,28 @@ module "kubesphere_vpc" {
 
   vpc_id     = ""
   vpc_name   = local.vpc_name
-  igw_name   = local.cluster_name
+  cluster_name = local.cluster_name
+  igw_name   = local.vpc_name
 
   vpc_cidr     = "10.1.0.0/17"
   k8s_cni_cidr = "10.1.128.0/17"
   
   az_zone_names = ["ap-northeast-2a","ap-northeast-2b","ap-northeast-2c","ap-northeast-2d"]
 
-  enable_sub_env   = true
+  enable_sub_env   = false
   
-  private_sub_env1 = "private-1"
-  private_sub_env2 = "private-2"
-  public_sub_env1  = "public-1"
-  public_sub_env2  = "public-2"
+  private_sub_env1 = "1"
+  private_sub_env2 = "2"
+  public_sub_env1  = "1"
+  public_sub_env2  = "2"
   
   account_id = var.account_id
   bucket     = "kubesphere-vpc-flowlogs"
-  create_flowlogs_s3        = true
+  create_flowlogs_s3        = false
   flowlogs_traffic_type     = "ACCEPT"
   flowlogs_destination_type = "s3"
   logging_bucket_prefix     = "vpc-flowlog-dev/"
+  #kms_arn_s3                = "arn:aws:kms:ap-northeast-2:123456789012:key/value"
   
   env = "dev"
 }
