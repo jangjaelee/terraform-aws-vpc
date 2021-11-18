@@ -59,4 +59,9 @@ resource "aws_route_table_association" "k8s_cni" {
 
   subnet_id = each.value.id
   route_table_id = aws_route_table.k8s_cni.id
+
+  depends_on = [
+    aws_route_table.k8s_cni
+  ]
+
 }

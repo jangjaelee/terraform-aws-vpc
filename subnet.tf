@@ -44,7 +44,8 @@ module "k8s_cni_subnet_addrs" {
 }
 
 resource "aws_subnet" "k8s_cni" {
-  for_each = module.k8s_cni_subnet_addrs.network_cidr_blocks
+  #for_each = module.k8s_cni_subnet_addrs.network_cidr_blocks
+  for_each = var.create_eks_cidr ? module.k8s_cni_subnet_addrs.network_cidr_blocks : {}
 
   vpc_id = local.vpc_id
   availability_zone = split("_", each.key)[0]

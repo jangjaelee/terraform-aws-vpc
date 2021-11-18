@@ -18,6 +18,8 @@ resource "aws_vpc" "this" {
 }
 
 resource "aws_vpc_ipv4_cidr_block_association" "k8s_cni_cidr" {
+  count      = var.create_eks_cidr ? 1 : 0
+
   vpc_id = local.vpc_id
   cidr_block = var.k8s_cni_cidr
 }

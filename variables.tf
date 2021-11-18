@@ -44,6 +44,12 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/17"
 }
 
+variable "create_eks_cidr" {
+  description = "Create a VPC CIDR for EKS"
+  type        = bool
+  default     = true
+}
+
 variable "k8s_cni_cidr" {
   description = "CIDR block for k8s CNI"
   type        = string
